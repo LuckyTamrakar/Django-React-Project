@@ -35,9 +35,10 @@ function ProfleView() {
       },[data,isSuccess])
       //console.log(userPatientData)
    function deletePatientData(){
-    deleteData(userData.email)
-    alert("Successfully Deleted")
-    window.location.reload(false)
+    if (window.confirm('Are you sure you want to cancel the appointment')){
+      deleteData(userData.email)
+      window.location.reload()
+    }
    }
    const [patientAppointment,{isLoading}]=usePatientUpdateMutation()
   const [server_error, setServerError]=useState({})
